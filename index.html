@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leguará — Educação Cultural Brasileira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="palacios.css">
+
+</head>
+<body>
+
+<div class="nav-overlay" id="navOverlay" onclick="closeSidebar()"></div>
+
+<!-- ═══════════════════════════════════
+     SIDEBAR
+═══════════════════════════════════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-mark" onclick="navigate('home')">Leguará</div>
+    <div class="logo-sub">Educação Cultural Brasileira</div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label">Plataforma</div>
+    <button class="nav-item active" id="nav-home" onclick="navigate('home')">
+      <i class="ti ti-home"></i> Início
+    </button>
+    <button class="nav-item" id="nav-temas" onclick="navigate('temas')">
+      <i class="ti ti-books"></i> Temas
+    </button>
+    <button class="nav-item" id="nav-quiz" onclick="navigate('quiz')">
+      <i class="ti ti-help-circle"></i> Quiz Geral
+    </button>
+    <button class="nav-item" id="nav-professor" onclick="navigate('professor')">
+      <i class="ti ti-school"></i> Área do Professor
+    </button>
+    <button class="nav-item" id="nav-palacios" onclick="navigate('palacios')">
+      <i class="ti ti-building-castle"></i> Palácios Mentais
+    </button>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label">Temas</div>
+    <button class="nav-item" id="nav-africana" onclick="openTema('africana')">
+      <span class="nav-dot" style="background:#8B3A2A;"></span> Ancestralidade Africana
+    </button>
+    <button class="nav-item" id="nav-indigena" onclick="openTema('indigena')">
+      <span class="nav-dot" style="background:#3A6B1A;"></span> Ancestralidade Indígena
+    </button>
+    <button class="nav-item" id="nav-biomas" onclick="openTema('biomas')">
+      <span class="nav-dot" style="background:#1A5C38;"></span> Biomas Brasileiros
+    </button>
+    <button class="nav-item" id="nav-rio" onclick="openTema('rio')">
+      <span class="nav-dot" style="background:#3A1A6B;"></span> História do Rio
+    </button>
+    <button class="nav-item" id="nav-imigracao" onclick="openTema('imigracao')">
+      <span class="nav-dot" style="background:#6B4A1A;"></span> Imigração no Brasil
+    </button>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label">Projeto</div>
+    <button class="nav-item" id="nav-sobre" onclick="navigate('sobre')">
+      <i class="ti ti-info-circle"></i> Sobre o Leguará
+    </button>
+  </div>
+
+  <div class="sidebar-footer">
+    <p>Leguará © 2025<br>Educação cultural multimodal<br>para o Brasil e o mundo.</p>
+  </div>
+</aside>
+
+<!-- ═══════════════════════════════════
+     MAIN
+═══════════════════════════════════ -->
+<main class="main" id="mainContent">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <button class="hamburger" onclick="toggleSidebar()"><i class="ti ti-menu-2"></i></button>
+      <div class="topbar-breadcrumb" id="breadcrumb">
+        <span>Início</span>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <button class="topbar-btn topbar-btn-outline" onclick="navigate('professor')">
+        <i class="ti ti-school"></i> Área do Professor
+      </button>
+      <button class="topbar-btn topbar-btn-fill" onclick="navigate('quiz')">
+        <i class="ti ti-help-circle"></i> Quiz
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════ VIEW: HOME ═══════ -->
+  <div class="view active" id="view-home">
+
+    <div class="hero">
+      <div class="hero-eyebrow">Plataforma educacional</div>
+      <h1 class="hero-title">
+        O Brasil<br>contado com <em>arte,</em><br>ciência e afeto.
+      </h1>
+      <p class="hero-sub">
+        Leguará é uma plataforma de educação cultural que ensina o Brasil através de experiências multimodais — adaptadas para cada forma de aprender.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="navigate('temas')">
+          <i class="ti ti-books"></i> Explorar temas
+        </button>
+        <button class="btn-ghost" onclick="navigate('palacios')">
+          <i class="ti ti-building-castle"></i> Palácios Mentais
+        </button>
+        <button class="btn-ghost" onclick="navigate('sobre')">
+          <i class="ti ti-info-circle"></i> Sobre o projeto
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">5</div>
+          <div class="hero-stat-label">Temas disponíveis</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">4×</div>
+          <div class="hero-stat-label">Formatos por tema</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">25+</div>
+          <div class="hero-stat-label">Atividades interativas</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">∞</div>
+          <div class="hero-stat-label">Formas de aprender</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-eyebrow">Temas disponíveis</div>
+      <h2 class="section-title">Comece por onde quiser</h2>
+      <p class="section-sub">Cada tema tem quatro versões de leitura, quiz, atividades e material do professor.</p>
+
+      <div class="temas-grid">
+
+        <div class="tema-card" onclick="openTema('africana')">
+          <div class="tema-card-header" style="background:linear-gradient(135deg,#5C1A0A,#8B3A2A);">
+            <div class="tema-card-icon">🌍</div>
+          </div>
+          <div class="tema-card-body">
+            <div class="tema-card-tag">Cultura &amp; Identidade</div>
+            <div class="tema-card-title">Ancestralidade Africana</div>
+            <div class="tema-card-desc">Como a cultura africana moldou a língua, a música, a culinária e a espiritualidade do Brasil.</div>
+            <div class="tema-card-formats">
+              <span class="format-tag">4 versões</span>
+              <span class="format-tag">Quiz</span>
+              <span class="format-tag">Reflexão</span>
+              <span class="format-tag">Atividades</span>
+            </div>
+          </div>
+          <div class="tema-card-footer">
+            <span>5 min · Básico ao avançado</span>
+            <div class="tema-arrow"><i class="ti ti-arrow-right"></i></div>
+          </div>
+        </div>
+
+        <div class="tema-card" onclick="openTema('indigena')">
+          <div class="tema-card-header" style="background:linear-gradient(135deg,#1A3A0A,#3A6B1A);">
+            <div class="tema-card-icon">🌿</div>
+          </div>
+          <div class="tema-card-body">
+            <div class="tema-card-tag">Povos Originários</div>
+            <div class="tema-card-title">Ancestralidade Indígena</div>
+            <div class="tema-card-desc">Os primeiros habitantes do Brasil e sua presença viva na língua, na culinária e na floresta.</div>
+            <div class="tema-card-formats">
+              <span class="format-tag">4 versões</span>
+              <span class="format-tag">Quiz</span>
+              <span class="format-tag">Linha do tempo</span>
+            </div>
+          </div>
+          <div class="tema-card-footer">
+            <span>5 min · Básico ao avançado</span>
+            <div class="tema-arrow"><i class="ti ti-arrow-right"></i></div>
+          </div>
+        </div>
+
+        <div class="tema-card" onclick="openTema('biomas')">
+          <div class="tema-card-header" style="background:linear-gradient(135deg,#0A2A18,#1A5C38);">
+            <div class="tema-card-icon">🌱</div>
+          </div>
+          <div class="tema-card-body">
+            <div class="tema-card-tag">Natureza &amp; Território</div>
+            <div class="tema-card-title">Biomas Brasileiros</div>
+            <div class="tema-card-desc">Seis mundos dentro de um país — Amazônia, Cerrado, Caatinga, Mata Atlântica, Pantanal e Pampa.</div>
+            <div class="tema-card-formats">
+              <span class="format-tag">4 versões</span>
+              <span class="format-tag">Quiz</span>
+              <span class="format-tag">Mapa visual</span>
+            </div>
+          </div>
+          <div class="tema-card-footer">
+            <span>6 min · Básico ao avançado</span>
+            <div class="tema-arrow"><i class="ti ti-arrow-right"></i></div>
+          </div>
+        </div>
+
+        <div class="tema-card" onclick="openTema('rio')">
+          <div class="tema-card-header" style="background:linear-gradient(135deg,#0A0A2A,#3A1A6B);">
+            <div class="tema-card-icon">🌊</div>
+          </div>
+          <div class="tema-card-body">
+            <div class="tema-card-tag">Cidades &amp; História</div>
+            <div class="tema-card-title">História do Rio de Janeiro</div>
+            <div class="tema-card-desc">Da Baía de Guanabara ao Carnaval — como o Rio foi capital do mundo e coração do Brasil.</div>
+            <div class="tema-card-formats">
+              <span class="format-tag">4 versões</span>
+              <span class="format-tag">Linha do tempo</span>
+              <span class="format-tag">Quiz</span>
+            </div>
+          </div>
+          <div class="tema-card-footer">
+            <span>6 min · Básico ao avançado</span>
+            <div class="tema-arrow"><i class="ti ti-arrow-right"></i></div>
+          </div>
+        </div>
+
+        <div class="tema-card" onclick="openTema('imigracao')">
+          <div class="tema-card-header" style="background:linear-gradient(135deg,#2A1A0A,#6B4A1A);">
+            <div class="tema-card-icon">🧳</div>
+          </div>
+          <div class="tema-card-body">
+            <div class="tema-card-tag">Diversidade &amp; Identidade</div>
+            <div class="tema-card-title">Imigração no Brasil</div>
+            <div class="tema-card-desc">Suíços, alemães, italianos, japoneses e venezuelanos — o Brasil como país de chegadas.</div>
+            <div class="tema-card-formats">
+              <span class="format-tag">4 versões</span>
+              <span class="format-tag">Quiz</span>
+              <span class="format-tag">Mapa de origens</span>
+            </div>
+          </div>
+          <div class="tema-card-footer">
+            <span>6 min · Básico ao avançado</span>
+            <div class="tema-arrow"><i class="ti ti-arrow-right"></i></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-eyebrow">Formatos de aprendizagem</div>
+      <h2 class="section-title">Cada forma de aprender tem seu lugar</h2>
+      <p class="section-sub">O Leguará oferece o mesmo conteúdo em quatro versões — para cada estilo cognitivo.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#E8F5EC;color:#1A5C30;"><i class="ti ti-text-size"></i></div>
+          <div class="feature-name">Versão Padrão</div>
+          <div class="feature-desc">Narrativa fluida com profundidade histórica e linguagem acessível.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#FDF3E3;color:#7A4D10;"><i class="ti ti-heart"></i></div>
+          <div class="feature-name">Simplificada</div>
+          <div class="feature-desc">Frases curtas, uma ideia por vez. Para TEA, dislexia e processamento lento.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#EEEDFE;color:#3C3489;"><i class="ti ti-bolt"></i></div>
+          <div class="feature-name">Ultra Objetiva</div>
+          <div class="feature-desc">Bullets e listas diretas. Para TDAH, consulta rápida e leitura mobile.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#FAECE7;color:#712B13;"><i class="ti ti-photo"></i></div>
+          <div class="feature-name">Leitura Visual</div>
+          <div class="feature-desc">Blocos curtos com sugestões de ilustração, mapas e infográficos.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#E8EAF8;color:#2A2E89;"><i class="ti ti-help-circle"></i></div>
+          <div class="feature-name">Quiz Interativo</div>
+          <div class="feature-desc">5 perguntas por tema, com feedback imediato e pontuação.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#FBF0DC;color:#6B3A10;"><i class="ti ti-school"></i></div>
+          <div class="feature-name">Material do Professor</div>
+          <div class="feature-desc">Perguntas de reflexão, atividades práticas e sugestões de recursos visuais.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /view-home -->
+
+  <!-- ═══════ VIEW: TEMAS (lista) ═══════ -->
+  <div class="view" id="view-temas">
+    <div class="section">
+      <div class="section-eyebrow">Biblioteca</div>
+      <h2 class="section-title">Todos os temas</h2>
+      <p class="section-sub">Escolha um tema para explorar nas quatro versões de leitura.</p>
+      <div class="temas-grid" style="margin-top:2rem;">
+        <div class="tema-card" onclick="openTema('africana')">
+          <div class="tema-card-header" style="background:linear-gradient(135deg,#5C1A0A,#8B3A2A);">
+            <div class="tema-card-icon">🌍</div>
+          </div>
+          <div class="tema-card-body">
+            <div class="tema-card-tag">Cultura &amp; Identidade</div>
+            <div class="tema-card-title">Ancestralidade Africana</div>
+            <div class="tema-card-desc">Como a cultura africana moldou o Brasil.</div>
+          </div>
+          <div class="tema-card-footer">
+            <span>5 tópicos · 4 versões</span>
+            <div class="tema-arrow"><i class="ti ti-arrow-right"></i></div>
+          </div>
+        </div>
+        <div class="tema-card" onclick="openTema('indigena')">
+          <div class="tema-card-header" style="background:linear-gradient(135deg,#1A3A0A,#3A6B1A);">
+            <div class="tema-card-icon">🌿</div>
+          </div>
+          <div class="tema-card-body">
+            <div class="tema-card-tag">Povos Originários</div>
+            <div class="tema-card-title">Ancestralidade Indígena</div>
+            <div class="tema-card-desc">Os primeiros povos do Brasil.</div>
+          </div>
+          <div class="tema-card-footer">
+            <span>5 tópicos · 4 versões</span>
+            <div class="tema-arrow"><i class="ti ti-arrow-right"></i></div>
+          </div>
+        </div>
+        <div class="tema-card" onclick="openTema('biomas')">
+          <div class="tema-card-header" style="background:linear-gradient(135deg,#0A2A18,#1A5C38);">
+            <div class="tema-card-icon">🌱</div>
+          </div>
+          <div class="tema-card-body">
+            <div class="tema-card-tag">Natureza &amp; Território</div>
+            <div class="tema-card-title">Biomas Brasileiros</div>
+            <div class="tema-card-desc">Seis mundos dentro de um país.</div>
+          </div>
+          <div class="tema-card-footer">
+            <span>6 biomas · 4 versões</span>
+            <div class="tema-arrow"><i class="ti ti-arrow-right"></i></div>
+          </div>
+        </div>
+        <div class="tema-card" onclick="openTema('rio')">
+          <div class="tema-card-header" style="background:linear-gradient(135deg,#0A0A2A,#3A1A6B);">
+            <div class="tema-card-icon">🌊</div>
+          </div>
+          <div class="tema-card-body">
+            <div class="tema-card-tag">Cidades &amp; História</div>
+            <div class="tema-card-title">História do Rio de Janeiro</div>
+            <div class="tema-card-desc">Da Guanabara ao século XXI.</div>
+          </div>
+          <div class="tema-card-footer">
+            <span>12 marcos · 4 versões</span>
+            <div class="tema-arrow"><i class="ti ti-arrow-right"></i></div>
+          </div>
+        </div>
+        <div class="tema-card" onclick="openTema('imigracao')">
+          <div class="tema-card-header" style="background:linear-gradient(135deg,#2A1A0A,#6B4A1A);">
+            <div class="tema-card-icon">🧳</div>
+          </div>
+          <div class="tema-card-body">
+            <div class="tema-card-tag">Diversidade &amp; Identidade</div>
+            <div class="tema-card-title">Imigração no Brasil</div>
+            <div class="tema-card-desc">Muitos povos, um país.</div>
+          </div>
+          <div class="tema-card-footer">
+            <span>8 ondas · 4 versões</span>
+            <div class="tema-arrow"><i class="ti ti-arrow-right"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ VIEW: TEMA DETAIL ═══════ -->
+  <div class="view" id="view-tema">
+    <div class="tema-hero" id="temaHero">
+      <div class="tema-hero-inner">
+        <div class="tema-badge" id="temaBadge"></div>
+        <h1 class="tema-title" id="temaTitleEl"></h1>
+        <p class="tema-intro" id="temaIntroEl"></p>
+      </div>
+    </div>
+
+    <div class="format-tabs-bar">
+      <button class="format-tab active" onclick="switchFormat('padrao', this)">
+        <i class="ti ti-text-size"></i> Padrão
+      </button>
+      <button class="format-tab" onclick="switchFormat('simples', this)">
+        <i class="ti ti-heart"></i> Simplificada
+      </button>
+      <button class="format-tab" onclick="switchFormat('objetiva', this)">
+        <i class="ti ti-bolt"></i> Ultra objetiva
+      </button>
+      <button class="format-tab" onclick="switchFormat('visual', this)">
+        <i class="ti ti-photo"></i> Leitura visual
+      </button>
+      <button class="format-tab" onclick="switchFormat('quiz-tema', this)">
+        <i class="ti ti-help-circle"></i> Quiz
+      </button>
+      <button class="format-tab" onclick="switchFormat('professor-tema', this)">
+        <i class="ti ti-school"></i> Professor
+      </button>
+      <button class="format-tab" onclick="switchFormat('audio', this)">
+        <i class="ti ti-headphones"></i> Áudio
+      </button>
+      <button class="format-tab" onclick="switchFormat('mapa', this)">
+        <i class="ti ti-map-2"></i> Mapa Interativo
+      </button>
+      <button class="format-tab" onclick="switchFormat('atividade', this)">
+        <i class="ti ti-puzzle"></i> Atividade
+      </button>
+    </div>
+
+    <!-- PADRÃO -->
+    <div class="content-pane active" id="pane-padrao">
+      <div id="content-padrao" class="prose-leguara"></div>
+    </div>
+
+    <!-- SIMPLIFICADA -->
+    <div class="content-pane" id="pane-simples">
+      <div class="simples-cards" id="content-simples"></div>
+    </div>
+
+    <!-- OBJETIVA -->
+    <div class="content-pane" id="pane-objetiva">
+      <div id="content-objetiva"></div>
+    </div>
+
+    <!-- VISUAL -->
+    <div class="content-pane" id="pane-visual">
+      <div class="visual-cards" id="content-visual"></div>
+    </div>
+
+    <!-- QUIZ TEMA -->
+    <div class="content-pane" id="pane-quiz-tema">
+      <div id="quiz-tema-container"></div>
+    </div>
+
+    <!-- PROFESSOR TEMA -->
+    <div class="content-pane" id="pane-professor-tema">
+      <div id="content-professor-tema"></div>
+    </div>
+
+
+    <!-- ÁUDIO -->
+    <div class="content-pane" id="pane-audio">
+      <div class="audio-pane" id="audio-pane-content"></div>
+    </div>
+
+    <!-- MAPA INTERATIVO -->
+    <div class="content-pane" id="pane-mapa">
+      <div class="genially-pane" id="mapa-pane-content"></div>
+    </div>
+
+    <!-- ATIVIDADE INTERATIVA -->
+    <div class="content-pane" id="pane-atividade">
+      <div class="genially-pane" id="atividade-pane-content"></div>
+    </div>
+
+  </div><!-- /view-tema -->
+
+  <!-- ═══════ VIEW: QUIZ GERAL ═══════ -->
+  <div class="view" id="view-quiz">
+    <div class="section">
+      <div class="section-eyebrow">Avaliação</div>
+      <h2 class="section-title">Quiz Geral</h2>
+      <p class="section-sub">Teste seus conhecimentos sobre os cinco temas com 10 perguntas variadas.</p>
+      <div style="margin-top:2rem;" id="quiz-geral-container"></div>
+    </div>
+  </div>
+
+  <!-- ═══════ VIEW: PROFESSOR ═══════ -->
+  <div class="view" id="view-professor">
+    <div class="section">
+      <div class="section-eyebrow">Para educadores</div>
+      <h2 class="section-title">Área do Professor</h2>
+      <p class="section-sub">Materiais de apoio, perguntas de reflexão, ideias de atividades e sugestões de recursos visuais para cada tema.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <h3 style="font-family:'Fraunces',serif;font-size:20px;font-weight:400;color:var(--forest);margin-bottom:1.5rem;">Guia de uso da plataforma</h3>
+      <div class="professor-grid">
+        <div class="prof-card">
+          <div class="prof-card-icon" style="background:#E8F5EC;color:#1A5C30;"><i class="ti ti-clock"></i></div>
+          <div class="prof-card-title">Aula de 50 minutos</div>
+          <div class="prof-card-desc">Versão Padrão (10 min) → Quiz (10 min) → Atividade em grupo (20 min) → Reflexão coletiva (10 min).</div>
+          <div class="prof-download-btn"><i class="ti ti-download"></i> Plano de aula</div>
+        </div>
+        <div class="prof-card">
+          <div class="prof-card-icon" style="background:#FBF0DC;color:#6B3A10;"><i class="ti ti-users"></i></div>
+          <div class="prof-card-title">Inclusão e neurodivergência</div>
+          <div class="prof-card-desc">Use a versão Simplificada ou Ultra Objetiva para estudantes com TEA, dislexia ou TDAH. Cada versão foi projetada com critérios específicos de acessibilidade cognitiva.</div>
+          <div class="prof-download-btn"><i class="ti ti-download"></i> Guia de acessibilidade</div>
+        </div>
+        <div class="prof-card">
+          <div class="prof-card-icon" style="background:#E8EAF8;color:#2A2E89;"><i class="ti ti-presentation"></i></div>
+          <div class="prof-card-title">Apresentação para turma</div>
+          <div class="prof-card-desc">Use a versão Leitura Visual no projetor da sala — os blocos curtos facilitam a discussão coletiva e a pausa para perguntas.</div>
+          <div class="prof-download-btn"><i class="ti ti-download"></i> Slides base</div>
+        </div>
+        <div class="prof-card">
+          <div class="prof-card-icon" style="background:#F4E8E8;color:#6B1A1A;"><i class="ti ti-palette"></i></div>
+          <div class="prof-card-title">Recursos visuais</div>
+          <div class="prof-card-desc">Cada tema vem com prompts prontos para Canva e Leonardo AI — para criar cartazes, infográficos e materiais de sala de forma autônoma.</div>
+          <div class="prof-download-btn"><i class="ti ti-download"></i> Prompts visuais</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <h3 style="font-family:'Fraunces',serif;font-size:20px;font-weight:400;color:var(--forest);margin-bottom:0.5rem;">Perguntas de reflexão por tema</h3>
+      <p style="font-size:13px;color:var(--ink-l);margin-bottom:1.5rem;">Para debate em sala, trabalho escrito ou roda de conversa.</p>
+
+      <div style="margin-bottom:2rem;">
+        <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:0.75rem;display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:#8B3A2A;display:inline-block;"></span>Ancestralidade Africana</div>
+        <div class="reflection-cards">
+          <div class="reflection-card"><span class="reflection-num">1</span><span class="reflection-text">Como reconhecer a violência da escravidão sem apagar a beleza e a força da cultura que resistiu a ela?</span></div>
+          <div class="reflection-card"><span class="reflection-num">2</span><span class="reflection-text">Que palavras, comidas ou costumes do seu cotidiano têm origem africana? O que muda quando você passa a reconhecer essa origem?</span></div>
+          <div class="reflection-card"><span class="reflection-num">3</span><span class="reflection-text">Por que o candomblé e a capoeira foram perseguidos? O que isso revela sobre poder e cultura?</span></div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:0.75rem;display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:#3A6B1A;display:inline-block;"></span>Ancestralidade Indígena</div>
+        <div class="reflection-cards">
+          <div class="reflection-card"><span class="reflection-num">1</span><span class="reflection-text">O que muda na nossa compreensão do Brasil quando reconhecemos que esses povos existem, resistem e contribuem até hoje?</span></div>
+          <div class="reflection-card"><span class="reflection-num">2</span><span class="reflection-text">Territórios indígenas são as regiões mais preservadas do Brasil. O que isso diz sobre cultura e sustentabilidade?</span></div>
+          <div class="reflection-card"><span class="reflection-num">3</span><span class="reflection-text">Como seria diferente dizer "Guanabara" em vez de "Rio de Janeiro"? O que se perde quando um nome indígena é apagado?</span></div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:0.75rem;display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:#1A5C38;display:inline-block;"></span>Biomas Brasileiros</div>
+        <div class="reflection-cards">
+          <div class="reflection-card"><span class="reflection-num">1</span><span class="reflection-text">A Mata Atlântica abastece 70% dos brasileiros, mas perdeu 70% da sua área. Quem é responsável por essa situação?</span></div>
+          <div class="reflection-card"><span class="reflection-num">2</span><span class="reflection-text">Por que a Caatinga recebe menos atenção do que a Amazônia? O que isso diz sobre como valorizamos o Nordeste?</span></div>
+          <div class="reflection-card"><span class="reflection-num">3</span><span class="reflection-text">Qual é a relação entre a presença de povos tradicionais e a conservação dos biomas?</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <h3 style="font-family:'Fraunces',serif;font-size:20px;font-weight:400;color:var(--forest);margin-bottom:0.5rem;">Atividades interativas sugeridas</h3>
+      <p style="font-size:13px;color:var(--ink-l);margin-bottom:1.5rem;">Adaptáveis para diferentes faixas etárias e contextos de aprendizagem.</p>
+      <div class="activity-cards">
+        <div class="activity-card">
+          <div class="activity-title"><i class="ti ti-map-2" style="color:#D4A050;"></i> Mapa das heranças culturais</div>
+          <div class="activity-desc">Com um mapa do Brasil, os estudantes localizam a influência de cada povo (africano, indígena, imigrante) em diferentes regiões — usando cores, barbante ou etiquetas. Funciona para todos os cinco temas.</div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-title"><i class="ti ti-tools-kitchen-2" style="color:#C8622A;"></i> Mesa de heranças</div>
+          <div class="activity-desc">Cada estudante pesquisa a origem de um alimento do cotidiano. A turma monta uma "mesa" coletiva e traça a rota de cada prato até o Brasil. Da tapioca ao sushi, do acarajé à cuca alemã.</div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-title"><i class="ti ti-users" style="color:#1A5C38;"></i> Julgamento histórico</div>
+          <div class="activity-desc">Grupos representam personagens históricos (Estácio de Sá, D. João VI, Pereira Passos, um morador removido) e debatem suas ações em um tribunal simulado. Para o tema Rio de Janeiro.</div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-title"><i class="ti ti-chart-bar" style="color:#2A2E89;"></i> Painel de dados dos biomas</div>
+          <div class="activity-desc">Os estudantes recebem os dados do IBGE sobre preservação de cada bioma e criam gráficos comparativos — a mão ou com ferramentas digitais. Estimula leitura de dados e senso crítico ambiental.</div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-title"><i class="ti ti-microphone" style="color:#8B3A2A;"></i> Roda de saberes</div>
+          <div class="activity-desc">Em roda, cada estudante compartilha algo da cultura afro-brasileira ou indígena presente na sua vida — música, comida, expressão, ritual familiar. A proposta é tornar a herança cultural visível e nomeável.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /view-professor -->
+
+  <!-- ═══════ VIEW: SOBRE ═══════ -->
+  <div class="view" id="view-sobre">
+    <div class="sobre-hero">
+      <div style="font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1rem;">O projeto</div>
+      <h1 class="sobre-title">Leguará — Educação cultural para um Brasil inteiro</h1>
+      <p class="sobre-text">Leguará é uma plataforma de educação sobre a cultura brasileira que ensina o Brasil através de experiências multimodais. Cada tema possui diferentes formatos de aprendizagem, pensados para incluir diferentes formas de aprender — de crianças com dislexia a professores do Ensino Fundamental, de famílias brasileiras no exterior a neurodivergentes.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-eyebrow">Princípios</div>
+      <h2 class="section-title">O que nos guia</h2>
+      <div class="sobre-values">
+        <div class="sobre-value">
+          <div class="sobre-value-icon">🌍</div>
+          <div class="sobre-value-title">Precisão histórica</div>
+          <div class="sobre-value-desc">Todo conteúdo é baseado em fontes confiáveis — IBGE, FAPESP, Brasil Escola, InfoEscola — com referências citadas.</div>
+        </div>
+        <div class="sobre-value">
+          <div class="sobre-value-icon">♿</div>
+          <div class="sobre-value-title">Acessibilidade cognitiva</div>
+          <div class="sobre-value-desc">Quatro versões de cada conteúdo — para TEA, dislexia, TDAH e aprendizagem visual. Linguagem acolhedora, sem infantilização.</div>
+        </div>
+        <div class="sobre-value">
+          <div class="sobre-value-icon">🎨</div>
+          <div class="sobre-value-title">Design editorial</div>
+          <div class="sobre-value-desc">Visual inspirado em National Geographic, Google Arts & Culture e museus interativos. Premium sem ser inacessível.</div>
+        </div>
+        <div class="sobre-value">
+          <div class="sobre-value-icon">🌱</div>
+          <div class="sobre-value-title">Diversidade como valor</div>
+          <div class="sobre-value-desc">O Brasil é plural. A plataforma valoriza povos indígenas, afrodescendentes, imigrantes e comunidades tradicionais com igual cuidado e profundidade.</div>
+        </div>
+        <div class="sobre-value">
+          <div class="sobre-value-icon">👩‍🏫</div>
+          <div class="sobre-value-title">Foco no professor</div>
+          <div class="sobre-value-desc">Todo tema vem com perguntas de reflexão, atividades práticas e recursos visuais prontos para a sala de aula.</div>
+        </div>
+        <div class="sobre-value">
+          <div class="sobre-value-icon">🌐</div>
+          <div class="sobre-value-title">Brasileiros no mundo</div>
+          <div class="sobre-value-desc">Pensado também para famílias brasileiras vivendo no exterior — que querem ensinar seus filhos sobre o Brasil com qualidade.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-eyebrow">Público</div>
+      <h2 class="section-title">Para quem é o Leguará</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-top:1.5rem;">
+        <div style="padding:1.25rem;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);">
+          <div style="font-size:20px;margin-bottom:0.5rem;">🏫</div>
+          <div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:0.25rem;">Professores</div>
+          <div style="font-size:12px;color:var(--ink-l);line-height:1.5;">Ensino Fundamental e Médio — material pronto para usar em sala.</div>
+        </div>
+        <div style="padding:1.25rem;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);">
+          <div style="font-size:20px;margin-bottom:0.5rem;">👨‍👩‍👧</div>
+          <div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:0.25rem;">Famílias</div>
+          <div style="font-size:12px;color:var(--ink-l);line-height:1.5;">Pais que querem ensinar cultura brasileira em casa ou no exterior.</div>
+        </div>
+        <div style="padding:1.25rem;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);">
+          <div style="font-size:20px;margin-bottom:0.5rem;">🧒</div>
+          <div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:0.25rem;">Crianças 8–11</div>
+          <div style="font-size:12px;color:var(--ink-l);line-height:1.5;">Conteúdo adaptado para diferentes níveis e formas de aprender.</div>
+        </div>
+        <div style="padding:1.25rem;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);">
+          <div style="font-size:20px;margin-bottom:0.5rem;">🧠</div>
+          <div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:0.25rem;">Neurodivergentes</div>
+          <div style="font-size:12px;color:var(--ink-l);line-height:1.5;">TEA, dislexia e TDAH considerados desde o início — não como adaptação posterior.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /view-sobre -->
+
+  <!-- ═══════ VIEW: PALÁCIOS MENTAIS ═══════ -->
+  <div class="view" id="view-palacios">
+    <div id="palacios-root"></div>
+  </div>
+
+</main><!-- /main -->
+
+<script src="script.js"></script>
+<script src="palacios.js"></script>
+</body>
+</html>
